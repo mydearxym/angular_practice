@@ -1,5 +1,24 @@
 'use strict';
 
+// var canvas = document.getElementById("canvas");
+// var context = canvas.getContext('2d');
+// context.moveTo(100,100);
+// context.lineTo(700,700);
+// context.lineTo(100,700);
+// context.lineTo(100,100);
+
+// context.fillStyle="rgb(2,100,30)"
+// context.fill()
+// context.lineWidth = 5;
+// context.strokeStyle = "red";
+// context.stroke();
+// context.lineWidth = 5;
+// context.strokeStyle = "blue"
+// context.arc(300,300,200,0,1.5*Math.PI)
+// context.stroke();
+
+
+
 /**
  * @ngdoc function
  * @name myappApp.controller:MainCtrl
@@ -22,6 +41,7 @@
 //管杀不管埋
 // 问题我也是人，又不是穿山甲
 // 我引用一下我自己说过的话。
+//“圣贤为伍，师友同行”
 
 var myappApp = angular.module('myappApp')
 
@@ -29,11 +49,110 @@ myappApp.factory('Data', function(){
   return {msg: "i am from a service"}
 })
 
+myappApp.directive("superman",function(){
+  return {
+    restrict: "E",
+    template:"<div>here i am to save the day</div>"
+  }
+})
+
+
+myappApp.directive("superman2", function(){
+  return {
+    restrict: "A",
+    link: function() {
+      console.log(" i'am  working");
+    }
+
+  }
+})
+
+myappApp.directive("enter", function(){
+  return function(scope, element, attrs){
+      element.bind("mouseenter",function(){
+        // console.log("i am inside of you: "+attrs.enter);
+        scope.$apply(attrs.enter)
+      })
+  }
+
+})
+
+myappApp.directive("superhero", function(){
+  return {
+    restrict: "E",
+    controller:function($scope){
+      $scope.abilities = []
+      this.addStength = function() {
+        $scope.abilities.push("strength");
+      }
+      this.addSpeed = function(){
+        $scope.abilities.push("speed");
+      }
+      this.addFlight = function(){
+        $scope.abilities.push("flight");
+      }
+    },
+
+    link: function(scope, element){
+      element.bind("mouseenter", function(){
+        console.log(scope.abilities);
+      })
+
+    }
+
+  }
+})
+
+myappApp.directive("strength", function(){
+  return {
+    require:"superhero",
+    link: function(scope, element,attrs, superheroCtrl) {
+      superheroCtrl.addStength();
+    }
+  }
+
+})
+myappApp.directive("speed", function(){
+  return {
+    require:"superhero",
+    link: function(scope, element,attrs, superheroCtrl) {
+      superheroCtrl.addSpeed();
+    }
+  }
+
+})
+myappApp.directive("flight", function(){
+  return {
+    require:"superhero",
+    link: function(scope, element,attrs, superheroCtrl) {
+      superheroCtrl.addFlight();
+    }
+  }
+
+})
+
+myappApp.directive("kid", function(){
+  return {
+    restrict: "E",
+    scope:{},
+    template: '<input type="text" ng-model="chore">{{chore}}<br>'
+  }
+})
+
+
+
+
 myappApp.filter('reverse',function(){
   return function(text) {
     return text.split("").reverse().join("");
   }
+})
 
+myappApp.controller('testfunc', function($scope, Data) {
+  $scope.sayHi = function(){
+    console.log("testfunc say hi ~");
+  }
+  // Data=$scope.data ;//= Data;
 })
 
 myappApp.controller('firstCtrl', function($scope, Data) {
