@@ -139,7 +139,45 @@ myappApp.directive("kid", function(){
   }
 })
 
+myappApp.directive("drink", function(){
+  return {
+    // restrict: "E",
+    scope:{
+      // 把 index.html 中 flavor 属性对应的表达式就值，并将结果赋值给这里的 flavor
+      flavor:"@", // read the it in as string attrs.flavor 
+    },
+    template: '<div>{{flavor}}</div>',
+    // link: function(scope, element, attrs) {
+    //   scope.flavor = attrs.flavor;
+    // }
+  }
+})
 
+
+myappApp.directive("drink2", function(){
+  return {
+    scope:{
+      // = 是用来双向绑定更新的，按照类ng-model的语法，index.html 中ctrlFlavor也不需要{{}}了
+      flavor:"=", // read the it in as string attrs.flavor 
+    },
+    // 这里的 flavor 代表 scope 中 flavor所指代的 flavor=ctrlFlavor的值，并且是双向绑定
+    template: '<input type="text" ng-model="flavor">',
+  }
+})
+
+
+
+myappApp.directive("phone", function(){
+  return {
+    scope: {
+      dial:"&",
+    },
+    
+    template:'<input type="text" ng-model="value">'+'<div class="button" ng-click="dial({msg:value})">Call home!</div>',
+    // template:'<div class="button">Call home!</div>',
+
+  }
+})
 
 
 myappApp.filter('reverse',function(){
@@ -149,6 +187,11 @@ myappApp.filter('reverse',function(){
 })
 
 myappApp.controller('testfunc', function($scope, Data) {
+  $scope.ctrlFlavor = "xigua";
+  $scope.callHome = function(msg) {
+    console.log("called home from testfunc Ctrl" + msg);
+  }
+
   $scope.sayHi = function(){
     console.log("testfunc say hi ~");
   }
