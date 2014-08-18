@@ -49,6 +49,27 @@ myappApp.factory('Data', function(){
   return {msg: "i am from a service"}
 })
 
+myappApp.directive("zippy",function(){
+    return {
+        restrict: "E",
+        transclude:true,
+        scope: {
+            title:"@"
+        },
+        template:'<div><h3 ng-click="toggleContent()">{{title}}</h3><div ng-show="isContentVisible" ng-transclude>hello simon</div></div>',
+        link: function(scope) {
+            scope.isContentVisible = false;
+            scope.isContentVisible = false;
+            scope.toggleContent = function() {
+                scope.isContentVisible = !scope.isContentVisible;
+            }
+
+        }
+    }
+
+})
+
+
 myappApp.directive("superman",function(){
   return {
     restrict: "E",
@@ -76,6 +97,15 @@ myappApp.directive("enter", function(){
   }
 
 })
+
+myappApp.directive("panel", function(){
+   return {
+       restrict:"E",
+       transclude:true,
+       template: '<div class="alert-success" ng-transclude>sorry is a alert</div>'
+   }
+
+});
 
 myappApp.directive("superhero", function(){
   return {
@@ -144,9 +174,9 @@ myappApp.directive("drink", function(){
     // restrict: "E",
     scope:{
       // 把 index.html 中 flavor 属性对应的表达式就值，并将结果赋值给这里的 flavor
-      flavor:"@", // read the it in as string attrs.flavor 
+      flavor:"@" // read the it in as string attrs.flavor
     },
-    template: '<div>{{flavor}}</div>',
+    template: '<div>{{flavor}}</div>'
     // link: function(scope, element, attrs) {
     //   scope.flavor = attrs.flavor;
     // }
@@ -158,10 +188,10 @@ myappApp.directive("drink2", function(){
   return {
     scope:{
       // = 是用来双向绑定更新的，按照类ng-model的语法，index.html 中ctrlFlavor也不需要{{}}了
-      flavor:"=", // read the it in as string attrs.flavor 
+      flavor:"=" // read the it in as string attrs.flavor
     },
     // 这里的 flavor 代表 scope 中 flavor所指代的 flavor=ctrlFlavor的值，并且是双向绑定
-    template: '<input type="text" ng-model="flavor">',
+    template: '<input type="text" ng-model="flavor">'
   }
 })
 
@@ -170,10 +200,10 @@ myappApp.directive("drink2", function(){
 myappApp.directive("phone", function(){
   return {
     scope: {
-      dial:"&",
+      dial:"&"
     },
     
-    template:'<input type="text" ng-model="value">'+'<div class="button" ng-click="dial({msg:value})">Call home!</div>',
+    template:'<input type="text" ng-model="value">'+'<div class="button" ng-click="dial({msg:value})">Call home!</div>'
     // template:'<div class="button">Call home!</div>',
 
   }

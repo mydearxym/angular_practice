@@ -47,13 +47,29 @@
         <div drink flavor="{{ctrlFlavor}}"></div>
         <div drink2 flavor="ctrlFlavor"></div>
         <button phone dial="callHome(msg)"></button>
-        
+
       </div>
       
       kid:
       <kid></kid>
       <br>
       <br>
+
+       <panel>
+           <button class="btn btn-primary" type="button">helo</button>
+       </panel>
+
+       <br>
+       <br>
+
+        <input type="text" ng-model="model.title"/><br>
+        <input type="text" ng-model="model.content"/>
+
+
+        <zippy title="{{model.title}}">
+            this is the {{model.content}}
+
+        </zippy>
 
 
       <div ng-controller="firstCtrl">
