@@ -1,4 +1,5 @@
 this is basic env version
+todo: css ie8 problem
 before install ssd
 ## install yeoman (参考：http://blog.fens.me/nodejs-yeoman-intro/)
     > sudo npm install -g yo grunt-cli bower
