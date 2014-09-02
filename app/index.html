@@ -22,12 +22,19 @@
 
     <div class="container">
 
-      <div ng-controller="appCtrl">
-        <mypanel>
-          <button ng-click="appCtrl.sayHi()">click me</button>
-        </mypanel>
+      <form role="form">
+          <div class="form-group">
+              <input type="text" class="form-control" placeholder="type title ...." ng-model="model.title">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="type content ..." ng-model="model.content">
+          </div>
+      </form>
 
-      </div>
+      <zippy title="{{model.title}}">
+          The content => {{model.content}}
+      </zippy>
+
     </div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->

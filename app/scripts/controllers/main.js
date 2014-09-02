@@ -45,30 +45,27 @@
 
 var myappApp = angular.module('myappApp');
 
-var rsStaff = {};
-rsStaff.controllers = {};
-rsStaff.directives = {};
-
-rsStaff.controllers.appCtrl = function($scope) {
-    this.sayHi = function() {
-        alert("hi");
-    };
-
-    return $scope.appCtrl = this;
-};
-
-
-rsStaff.directives.mypanel = function() {
+myappApp.directive('zippy', function(){
     return {
         restrict: "E",
         transclude: true,
-        template: '<div class="jumbotron">this is a component<div ng-transclude></div></div>'
+        scope: {
+            title: "@"
+        },
+        template: '<div><h3 class="text-info" ng-click="toggleContent()">{{title}}</h3><div class="text-danger" ng-show="isContentShow" ng-transclude></div></div>',
+        link: function(scope) {
+            scope.isContentShow = false;
+
+            scope.toggleContent = function() {
+                scope.isContentShow = !scope.isContentShow;
+            }
+
+        }
+
     }
-};
 
+})
 
-myappApp.controller(rsStaff.controllers);
-myappApp.directive(rsStaff.directives);
 
 
 
