@@ -45,39 +45,30 @@
 
 var myappApp = angular.module('myappApp');
 
-myappApp.directive('dumbPassword', function(){
-    var validelement = angular.element(" <div>{{model.input}}</div>");
-
+myappApp.directive('zippy', function(){
     return {
         restrict: "E",
-        replace:true,
-        template: "<div>\n    <input type=\"text\" ng-model=\"model.input\">\n   \n</div>",
-//        这里的tElem 是指的上面的template
-        compile: function(tElem) {
-            tElem.append(validelement);
-            return function(scope) {
-                scope.$watch("model.input", function(value) {
-                    if(value === 'passwd'){
-                        validelement.toggleClass("alert alert-danger");
-                    }
-                })
+        transclude: true,
+        scope: {
+            title: "@"
+        },
+        template: '<div><h3 class="text-info" ng-click="toggleContent()">{{title}}</h3><div class="text-danger" ng-show="isContentShow" ng-transclude></div></div>',
+        link: function(scope) {
+            scope.isContentShow = false;
+
+            scope.toggleContent = function() {
+                scope.isContentShow = !scope.isContentShow;
             }
+
         }
 
-//        link: function(scope, element){
-//            scope.$watch("model.input", function(value){
-//                if(value === "passwd") {
-//                    console.log("change it");
-//
-////                    console.log("element: "+ element.children(0)[1]);
-//
-//                    element.children(0).toggleClass("alert alert-danger");
-//                }
-//            })
-//        }
-
     }
-});
+
+})
+
+
+
+
 
 
 
