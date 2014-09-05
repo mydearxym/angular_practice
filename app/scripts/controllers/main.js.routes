@@ -47,17 +47,33 @@ var myappApp = angular.module('myappApp');
 
 myappApp.config(function($routeProvider){
     $routeProvider
+        .when('/', {
+          template: "<h2 class=\"text-success\">Home page ha</h2>"
+        })
         .when('/map/:country/:state/:city',
         {
             templateUrl:"app.html",
             controller: "AppCtrl"
         })
-        .when('/pizza',{
+        .when('/food',{
             template: "<h3 class=\"text-danger\">very good</h3>    \n\n"
         })
-        .otherwise({
-            template: "<h2 class=\"text-danger\">not found</h2>"
+        .when("/porn/:country/:type", {
+            redirectTo: function(routeparams, path, search){
+                console.log(routeparams)
+                console.log(path)
+                console.log(search)
 
+                return "/" + routeparams.country
+            }
+
+        })
+        .when("/japan", {
+           template: "<div class=\"text-danger\">this is porn country page</div>"
+        })
+        .otherwise({
+//            template: "<h2 class=\"text-danger\">not found</h2>"
+            redirectTo: "/"
         })
 })
 
