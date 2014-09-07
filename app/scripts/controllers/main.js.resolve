@@ -51,9 +51,13 @@ myappApp.config(function($routeProvider){
             template: "<h2 class=\"text-success\">this is Home page</h2>",
             controller: "AppCtrl",
             resolve: {
-               loadData: myappApp.loadData,
-               prepData: myappApp.prepData
-
+                bla:function($q, $timeout){
+                    var defer = $q.defer();
+                    $timeout(function(){
+                        defer.resolve();
+                    },2000)
+                    return defer.promise
+                }
             }
 
 
@@ -71,23 +75,11 @@ myappApp.controller("AppCtrl", function($scope, $q){
 })
 
 
-myappApp.loadData = function($q, $timeout){
-    var defer = $q.defer();
-    $timeout(function(){
-        defer.resolve();
-        console.log("loadData done")
-    },4000)
-    return defer.promise
-}
+myappApp.run(function(){
+    console.log("this is run function");
 
-myappApp.prepData = function($q, $timeout){
-    var defer = $q.defer();
-    $timeout(function(){
-        defer.resolve();
-        console.log("preData done")
-    },2000)
-    return defer.promise
-}
+})
+
 
 
 
