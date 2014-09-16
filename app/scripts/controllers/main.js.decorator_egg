@@ -1,0 +1,78 @@
+'use strict';
+
+// var canvas = document.getElementById("canvas");
+// var context = canvas.getContext('2d');
+// context.moveTo(100,100);
+// context.lineTo(700,700);
+// context.lineTo(100,700);
+// context.lineTo(100,100);
+
+// context.fillStyle="rgb(2,100,30)"
+// context.fill()
+// context.lineWidth = 5;
+// context.strokeStyle = "red";
+// context.stroke();
+// context.lineWidth = 5;
+// context.strokeStyle = "blue"
+// context.arc(300,300,200,0,1.5*Math.PI)
+// context.stroke();
+
+
+
+/**
+ * @ngdoc function
+ * @name myappApp.controller:MainCtrl
+ * @description
+ * # MainCtrl
+ * Controller of the myappApp
+ */
+// angular.module('myappApp')
+//   .controller('MainCtrl', function ($scope) {
+//     $scope.awesomeThings = [
+//       'HTML5 Boilerplate',
+//       'AngularJS',
+//       'Karma'
+//     ];
+//   });
+
+
+var myappApp = angular.module('myappApp', ['ngAnimate']);
+
+myappApp.factory("System" ,function(){
+    function System(){
+        this.error = 15;
+    }
+    return System;
+});
+
+myappApp.config(function($provide){
+    $provide.decorator('System', function($delegate) {
+
+        Object.defineProperty($delegate.prototype, 'message', {
+            get: function() { return parseMessage(this.error); }
+        });
+
+        function parseMessage(error) {
+            return {
+                15: 'this is NO.15 error code'
+            }[error];
+        }
+
+        return $delegate;
+
+    });
+});
+
+myappApp.controller("AppCtrl",function(System){
+    this.system = new System();
+
+})
+
+
+
+
+
+
+
+
+

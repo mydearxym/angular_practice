@@ -22,9 +22,9 @@
 
 
     <div class="container" ng-controller="AppCtrl as app">
-      <h3 class="text-info">provider decorator test</h3>
+      <h3 class="text-info"> System Error test</h3>
       <blockquote>
-          send: {{app.emailComplete}}
+          Error code: {{app.system.message}}
 
       </blockquote>
     </div>
