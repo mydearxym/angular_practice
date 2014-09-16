@@ -3,38 +3,30 @@
 var myappApp = angular.module('myappApp', ['ngAnimate']);
 
 
-myappApp.service('todoService', function($q, $timeout) {
+myappApp.controller("AppCtrl",function($q, $interval){
 
-    this.getTodoData = function(){
-        var d = $q.defer();
-        $timeout(function(){
-            d.resolve([
-                {item: "Clean room", done: false},
-                {item: "Eat lunch", done: false},
-                {item: "Wash car", done: false}
-            ])
-        }, 3000);
-        return d.promise;
+//  注意这里的timer是一个 promise object , 所以需要 $q
+    // 100ms 运行 10 次
+    var timer = $interval(function () {
+    }, 100, 10);
+
+    function success() {
+        console.log("done");
     }
 
-    this.addTodo = function(item) {
-        // is this.todos defined ?
-        this.todos.push({item: item, done: false});
+    function error() {
+        console.log("cancelled or error");
     }
 
-});
+    function notify() {
+        console.log("updating");
+    }
 
+    timer.then(success, error, notify)
 
-myappApp.controller("AppCtrl",function(todoService){
-    // 这个是最佳实践哈
-    var appctrl = this;
-    // cool, 注意体会
-    todoService.getTodoData().then(function(result){
-//        注意这里不能用 this.todos， 因为这里的 this 已经不是 AppCtrl 了
-//        this.todos = result;
-        appctrl.todos = result;
-    })
-    appctrl.addTodo = todoService.addTodo;
+    this.cancel = function () {
+        $interval.cancel(timer);
+    }
 });
 
 

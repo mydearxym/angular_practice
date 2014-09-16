@@ -22,11 +22,9 @@
 
 
     <div class="container" ng-controller="AppCtrl as app">
-      <h3 class="text-info">$interval test</h3>
+      <h3 class="text-info">$q.all</h3>
       <blockquote>
-          see console log for details
-          <button ng-click="app.cancel()">Cancel</button>
-          {{app.timerCount}}
+          see the console log
       </blockquote>
     </div>
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->

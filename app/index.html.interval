@@ -12,6 +12,7 @@
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/my.css">
     <!-- endbuild -->
   </head>
   <body ng-app="myappApp">
@@ -20,12 +21,13 @@
     <![endif]-->
 
 
-    <div class="container" ng-controller="AppCtrl">
+    <div class="container" ng-controller="AppCtrl as app">
       <h3 class="text-info">$interval test</h3>
       <blockquote>
-
+          see console log for details
+          <button ng-click="app.cancel()">Cancel</button>
+          {{app.timerCount}}
       </blockquote>
-
     </div>
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
 
