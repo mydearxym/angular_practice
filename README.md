@@ -29,7 +29,7 @@ before install ssd
          npm install <module> --save-dev 命令
        > 
 
-
+    ** karma ->  npm instlal -g karma-cli
 
 
        
