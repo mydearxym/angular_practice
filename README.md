@@ -1,6 +1,6 @@
 this is basic env version
 anther change from colorSeeSee
-
+this is a hot fix
 todo: css ie8 problem
 before install ssd
 ## install yeoman (参考：http://blog.fens.me/nodejs-yeoman-intro/)
