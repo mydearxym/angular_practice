@@ -17,11 +17,11 @@ myappApp.directive("bank",function(){
         }
 
     }
+
 })
 
 
 myappApp.controller("AppCtrl",function($q, $interval){
-
 
 });
 
