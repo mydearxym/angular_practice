@@ -1,0 +1,59 @@
+'use strict';
+
+var myappApp = angular.module('myappApp', ['ngAnimate']);
+
+myappApp.factory('shareData', function($rootScope){
+    var data = ['one', 'two', 'three'];
+
+    return {data: data};
+
+//    return {
+//        all: function() {
+//            return data;
+//        },
+//
+//        set: function() {
+//            data = [1,2,3];
+//            console.log("$broadcast.....");
+//            $rootScope.$broadcast('data:update',data);
+//        }
+//    }
+
+})
+
+
+myappApp.controller("FirstCtrl", function($scope, shareData){
+//    var appctrl = this;
+
+//    $scope.shareData = shareData.all();
+    $scope.showData = shareData;
+
+    $scope.setNewValue = function() {
+//        alert("do nothing, it is testing");
+//        shareData.set()
+//        $scope.shareData = shareData.all();
+    }
+});
+
+myappApp.controller("SecondCtrl",function($scope, shareData){
+//    var appctrl2 = this;
+
+//    $scope.shareData = shareData.all();
+    $scope.showdata = shareData;
+
+    $scope.$on('data:update', function(event,data) {
+        console.log("event:", event);
+        $scope.shareData = data;
+    });
+
+//    $scope.$watch('sharedata.data', function(){
+//        console.log("all watched!");
+//    })
+});
+
+
+
+
+
+
+
