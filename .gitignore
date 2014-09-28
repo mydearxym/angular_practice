@@ -1,3 +1,5 @@
+
+
 node_modules
 dist
 .tmp
@@ -5,3 +7,16 @@ dist
 bower_components
 .idea/workspace.xml
 .idea/*
+
+
+# the rails staff
+# Ignore bundler config
+/.bundle
+
+# Ignore the default SQLite database.
+/db/*.sqlite3
+
+# Ignore all logfiles and tempfiles.
+/log/*.log
+/tmp
+/config/deploy.rb
