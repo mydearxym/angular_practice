@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<head>
+    
+    <script src="../bower_components/jquery/jquery.js"></script>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    
+    <link  href="../bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css">
+    
+    <script src="../angular-tree-control.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/tree-control.css">
+    <link rel="stylesheet" type="text/css" href="../css/tree-control-attribute.css">
+    <style>
+        .docs-body{width: 1140px; margin: auto;}
+    </style>
+
+
+</head>
+<body ng-app="example">
+
+<div class="row docs-body">
+    <div class="col-md-9">
+        <section ng-controller="DirSelection">
+            <div class="page-header">
+                <h1>Clicking Labels Expand & Collapse <small>(options.dirSelectable)</small></h1>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div>
+                        <treecontrol class="tree-classic"
+                        tree-model="treedata"
+                        options="opts"
+                        on-selection="showSelected(node)">
+                        {{node.label}} 
+                    </treecontrol>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <p>In order to prevent selection of branches (folders) in the tree, set the <code>options.dirSelectable</code> to <code>false</code>.
+                    Clicking folder labels at this point will expand and contract the node.</p>
+                    <p>Selected node 节点: <code>{{selectedNode?selectedNode.label:"N/A"}}</code></p>
+                </div>
+            </div>
+
+            <script>
+                function DirSelection($scope) {
+                    // $scope.treedata=createSubTree(2, 1, "通道");
+                    $scope.treedata = [
+                      {
+                        label:'radiostreamer通道',
+                        children: [
+                          {
+                            label:'radiostreamer-a型通道'
+                          },
+
+                          {
+                            label:'radiostreamer-b型通道'
+                          },
+
+                          {
+                            label:'radiostreamer-c型通道'
+                          },
+
+                        ],
+                      },
+                
+                    ];
+
+                    $scope.opts = {
+                        dirSelectable: false
+                    };
+
+                    $scope.showSelected = function(sel) {
+                        $scope.selectedNode = sel;
+                    };
+                }
+            </script>
+        </section>
+
+    </div>
+</div>
+
+<br><br><br><br><br><br><br><br><br><br><br><br>
+<script>
+    var example = angular.module("example", ["treeControl", "ui.bootstrap"]);
+
+</script>
+
+</body>
+</html>
