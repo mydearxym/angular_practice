@@ -1,0 +1,22 @@
+{
+  "name": "angular-common",
+  "version": "1.1.10",
+  "homepage": "https://github.com/clouddueling/angular-common",
+  "authors": [
+    "Michael Calkins <michael@clouddueling.com>"
+  ],
+  "main": "index.html",
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "~2.0.3",
+    "angular": "~1.2.6",
+    "angular-mocks": "~1.2.6",
+    "lodash": "~2.4.1",
+    "jquery-ui": "~1.10.3",
+    "jquery-form": "~3.46.0",
+    "moment": "~2.4.0",
+    "bootstrap": "~3.0.3",
+    "mediaelement": "~2.13.1",
+    "bootstrap-daterangepicker": "*"
+  }
+}

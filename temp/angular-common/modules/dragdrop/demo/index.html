@@ -1,0 +1,61 @@
+<h3>dragndrop</h3>
+
+<div class='row' ng-controller='DemoDragDropCtrl'>
+    <div class='col-sm-6'>
+        <h4>draggable</h4>
+        <ul class='unstyled-list'>
+            <li
+                class="ui-state-highlight"
+                ng-repeat='object in objects'
+                draggable="object"
+                draggable-target='.sortable'>
+                {{ object.name }}
+            </li>
+        </ul>
+
+        <h4>sortable</h4>
+        <ul
+            droppable='items.list1'
+            ng-move='moveObject(from, to, fromList, toList)'
+            ng-create='createObject(object, to, list)'
+            id="list1" class="sortable">
+            <li
+                class="ui-state-default"
+                ng-repeat="item in items.list1 track by item.id">
+                {{ $index }}: {{ item.id }} - {{ item.name }}
+                <button
+                    ng-click='deleteItem(item.id)'
+                    class='btn btn-xs pull-right btn-danger'>X</button>
+            </li>
+        </ul>
+        <h4>sortable</h4>
+        <ul
+            droppable='items.list2'
+            ng-move='moveObject(from, to, fromList, toList)'
+            ng-create='createObject(object, to, list)'
+            id="list2" class="sortable">
+            <li
+                class="ui-state-default"
+                ng-repeat="item in items.list2 track by item.id">
+                {{ $index }}: {{ item.id }} - {{ item.name }}
+                <button
+                    ng-click='deleteItem(item.id)'
+                    class='btn btn-xs pull-right btn-danger'>X</button>
+            </li>
+        </ul>
+
+        <pre>{{ items | json }}</pre>
+    </div>
+
+    <div class='col-sm-6'>
+        <p>
+            Drag an object from one list to another list.  The first list is the source for creating the second.
+
+            <ul>
+                <li>jQuery</li>
+            </ul>
+        </p>
+
+        <pre>{{ codeExample }}</pre>
+    </div>
+</div>

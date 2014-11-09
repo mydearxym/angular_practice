@@ -1,0 +1,13 @@
+<h3>youtube</h3>
+
+<div class='row' ng-controller='DemoYoutubeCtrl'>
+    <div class='col-sm-6'>
+        <img ng-src='{{ youtubeUrl | youtubeImage }}'>
+        <iframe frameborder='0' ng-src='{{ youtubeUrl | youtubeIframe }}'></iframe>
+    </div>
+
+    <div class='col-sm-6'>
+        <pre>{{ codeExample1 }}</pre>
+        <pre>{{ codeExample2 }}</pre>
+    </div>
+</div>

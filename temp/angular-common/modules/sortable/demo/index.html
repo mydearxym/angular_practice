@@ -1,0 +1,23 @@
+<h3>sortable</h3>
+
+<div class='row' ng-controller='DemoSortableCtrl'>
+    <div class='col-sm-6'>
+        <p>
+            <ul sortable ng-model="users" ng-change="orderChange()">
+                <li ng-repeat="user in users">
+                    {{ user.name }}
+                </li>
+            </ul>
+        </p>
+
+        <p>
+            <button class="btn btn-default" ng-click="users.push({name: 'Matt'})">Add User</button>
+        </p>
+
+        <pre>{{ users | json }}</pre>
+    </div>
+
+    <div class='col-sm-6'>
+        <pre>{{ codeExample }}</pre>
+    </div>
+</div>

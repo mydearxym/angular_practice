@@ -1,0 +1,13 @@
+<h3>time</h3>
+
+<div class='row' ng-controller='DemoTimeCtrl'>
+    <div class='col-sm-6'>
+        <p>{{ timeExample | moment:"MMM D, YYYY - h:mma" }}</p>
+        <p>{{ timeExample | fromNow }}</p>
+        <p>{{ timeExample | smallFromNow }}</p>
+    </div>
+
+    <div class='col-sm-6'>
+        <pre>{{ codeExample }}</pre>
+    </div>
+</div>

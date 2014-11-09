@@ -1,0 +1,124 @@
+<!doctype html>
+<html ng-app='angular-common' ng-cloak>
+    <head>
+        <title>Angular Common</title>
+
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+        <link href="//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" rel="stylesheet">
+        <link href="https://rawgithub.com/dangrossman/bootstrap-daterangepicker/master/daterangepicker-bs3.css" rel='stylesheet'>
+        <link href='http://imperavi.com/js/redactor/redactor.css' rel="stylesheet">
+        <link href='http://mediaelementjs.com/js/mejs-2.13.1/mediaelementplayer.min.css' rel='stylesheet'>
+
+        <style>
+            * {
+                box-sizing:border-box;
+            }
+
+            html, body {
+                overflow-y: auto;
+                overflow-x: hidden;
+            }
+
+            section {
+                padding: 0 30px 30px 30px;
+                border-bottom: 1px solid #eee;
+            }
+
+            h3 {
+                padding-top: 25px;
+                margin-top: 0;
+                margin-bottom: 30px;
+            }
+
+            .left-column {
+                background: #f5f5f5;
+                border-right: 1px solid #eee;
+                position: fixed;
+                padding: 30px;
+                padding-top: 10px;
+                top: 0;
+                bottom: 0;
+                width: 25%;
+            }
+
+            .main-column {
+                margin-left: 25%;
+                float: left;
+                width: 75%;
+            }
+        </style>
+    </head>
+
+    <body ng-controller='MainCtrl'>
+        <div class='left-column'>
+            <h3>
+                <a href='https://github.com/clouddueling/angular-common' target='_blank'>
+                    Angular/Common
+                </a>
+            </h3>
+            <ul>
+                <li ng-repeat='module in modules'>
+                    <a scroll-on-click href='#{{ module }}'>{{ module }}</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class='main-column'>
+            <div class='row'>
+                <div class='col-sm-12'>
+                    <section id='confirm'>
+                        <div ng-include='"modules/confirm/demo/index.html"'></div>
+                    </section>
+
+                    <section id='dateRange'>
+                        <div ng-include='"modules/dateRange/demo/index.html"'></div>
+                    </section>
+
+                    <section id='drag'>
+                        <div ng-include='"modules/drag/demo/index.html"'></div>
+                    </section>
+
+                    <section id='dragdrop'>
+                        <div ng-include='"modules/dragdrop/demo/index.html"'></div>
+                    </section>
+
+                    <section id='draw'>
+                        <div ng-include='"modules/draw/demo/index.html"'></div>
+                    </section>
+
+                    <section id='modal'>
+                        <div ng-include='"modules/modal/demo/index.html"'></div>
+                    </section>
+
+                    <section id='sortable'>
+                        <div ng-include='"modules/sortable/demo/index.html"'></div>
+                    </section>
+
+                    <section id='strings'>
+                        <div ng-include='"modules/strings/demo/index.html"'></div>
+                    </section>
+
+                    <section id='time'>
+                        <div ng-include='"modules/time/demo/index.html"'></div>
+                    </section>
+
+                    <section id='upload'>
+                        <div ng-include='"modules/upload/demo/index.html"'></div>
+                    </section>
+
+                    <section id='youtube'>
+                        <div ng-include='"modules/youtube/demo/index.html"'></div>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+        <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="//code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
+        <script>if (!RedactorPlugins) var RedactorPlugins = {};</script>
+        <script src='http://imperavi.com/js/redactor/redactor.js'></script>
+
+        <script src="build/angular-common.js"></script>
+    </body>
+</html>

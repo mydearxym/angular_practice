@@ -1,0 +1,27 @@
+<h3>confirm</h3>
+
+<div class='row' ng-controller='DemoConfirmCtrl'>
+    <div class='col-sm-6'>
+        <button
+            class='btn btn-default'
+            confirm='deleteObject(objectId)'
+            confirm-title='Delete this object?'
+            confirm-placement='top'>
+            Click Me
+        </button>
+
+        <p>{{ objectDeleted }}</p>
+    </div>
+
+    <div class='col-sm-6'>
+        <p>
+            A very simple (Yes|No) popover confirmation box.
+            <ul>
+                <li>jQuery</li>
+                <li>bootstrap</li>
+            </ul>
+        </p>
+
+        <pre>{{ codeExample }}</pre>
+    </div>
+</div>

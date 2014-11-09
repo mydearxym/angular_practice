@@ -1,0 +1,17 @@
+<h3>upload</h3>
+
+<div class='row' ng-controller='DemoUploadCtrl'>
+    <div class='col-sm-6'>
+        <button
+            class='btn btn-default'
+            ng-model='newFile.filename'
+            ng-change='fileUploaded(data)'
+            upload='"/your/upload/location"'>
+            Choose Image
+        </button>
+    </div>
+
+    <div class='col-sm-6'>
+        <pre>{{ codeExample }}</pre>
+    </div>
+</div>

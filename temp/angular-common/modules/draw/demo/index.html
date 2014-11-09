@@ -1,0 +1,76 @@
+<h3>draw</h3>
+
+<div class='row' ng-controller='DemoDrawCtrl'>
+    <div class='col-sm-6'>
+        <div class="well">
+            <p class="lead">Using all options:</p>
+
+            <p>
+                <label>Stroke Color:</label>
+                <input type="text" ng-model="strokeColor">
+            </p>
+
+            <p>
+                <label>Stroke Width:</label>
+                <input type="range" min="3" max="30" ng-model="strokeWidth">
+            </p>
+
+            <p>
+                <canvas
+                    width="300"
+                    height="100"
+                    stroke-color='strokeColor'
+                    stroke-width='strokeWidth'
+                    ng-change='changeLog()'
+                    ng-model='firstCanvas'
+                    draw></canvas>
+            </p>
+
+            <p>
+                <button ng-click='firstCanvas = ""' class="btn btn-default">
+                    Clear
+                </button>
+            </p>
+
+            <p>
+                <img src='{{ firstCanvas }}'>
+            </p>
+
+            <p>
+                <textarea ng-model="firstCanvas"></textarea>
+            </p>
+        </div>
+
+        <div class="well">
+            <p class="lead">No options used except ngModel:</p>
+
+            <p>
+                <canvas
+                    width="100"
+                    height="100"
+                    ng-model='secondCanvas'
+                    draw></canvas>
+            </p>
+
+            <p>
+                <img src='{{ secondCanvas }}'>
+            </p>
+
+            <p>
+                <textarea ng-model="secondCanvas"></textarea>
+            </p>
+        </div>
+
+        <style>
+            canvas {
+                border-bottom: 1px solid rgba(0,0,0,0.3);
+                background-color: #FFF;
+                box-shadow: 0 9px 20px -5px rgba(0,0,0,0.8);
+            }
+        </style>
+    </div>
+
+    <div class='col-sm-6'>
+        <pre>{{ codeExample }}</pre>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<h3>strings</h3>
+
+<div class='row' ng-controller='DemoStringsCtrl'>
+    <div class='col-sm-6'>
+        <p>{{ "title case" | titleCase }}</p>
+        <p>{{ "Lower Case" | lowerCase }}</p>
+        <p>{{ "nl\nbr" | nl2br }}</p>
+        <p>{{ "I'm soooo loooonnnggggg" | truncate:15 }}</p>
+        <p>{{ "http://www.google.com" | encodeURIComponent }}</p>
+        <p>{{ examples.stripHtml | stripHtml }}</p>
+        <p><input type='text' ng-model='examples.slugify' slugify></p>
+    </div>
+
+    <div class='col-sm-6'>
+        <pre>{{ codeExample }}</pre>
+    </div>
+</div>
