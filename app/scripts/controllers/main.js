@@ -9,21 +9,22 @@ var myapp = angular.module('myappApp', [
 
 myapp.service("myservice",function($rootScope){
 
-    var showmsg = true;
+    var showmsg = {val: true};
+
 
     this.get = function(){
-      return showmsg;
+      return showmsg["val"];
     };
 
     this.change = function(){
 
-      console.log("change before " + showmsg);
-      showmsg = !showmsg;
-      console.log("change after " + showmsg);
+      console.log("change before " + showmsg['val']);
+      showmsg["val"] = !showmsg["val"];
+      console.log("change after " + showmsg["val"]);
 
-      $rootScope.$broadcast('change:showmsg', showmsg)
+      $rootScope.$broadcast('change:showmsg', showmsg["val"])
 
-      return showmsg;
+      return showmsg["val"];
     };
 
 
