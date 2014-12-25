@@ -1,0 +1,29 @@
+'use strict';
+
+//var myappApp = angular.module('myappApp', ['ngAnimate']);
+
+
+var myapp = angular.module('myappApp', [
+  'ngAnimate',
+  'ui.bootstrap'
+]);
+
+
+myapp.controller("MainController", function(){
+  var self = this;
+
+  self.isCollapsed2 = false;
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
