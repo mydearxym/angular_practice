@@ -8,6 +8,8 @@ bower_components
 .idea/workspace.xml
 .idea/*
 
+projectFilesBackup/
+ui-test/
 
 # the rails staff
 # Ignore bundler config
