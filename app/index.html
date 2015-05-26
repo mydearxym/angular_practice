@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="styles/main.css">
   <link rel="stylesheet" href="styles/my.css">
   <link rel="stylesheet" href="bower_components/animate.css/animate.css">
+  <link rel="stylesheet" href="bower_components/angular-form-for/dist/form-for.css">
 
   <!-- endbuild -->
 </head>
@@ -103,26 +104,16 @@
 
 
 <div class="container" ng-controller="MainController">
-  <!--<input type="text" placeholder="Start typing to filter.." class="searchBox" />-->
 
-  <button ng-click="showit = !showit">show it</button>
-  <!--<button >removeit</button>-->
-  <div ng-show="showit">
-    <h5>jfieifjifjiej</h5>
-    <h5>jfieifjifjiej</h5>
-    <h5>jfieifjifjiej</h5>
-    <h5>jfieifjifjiej</h5>
-    <h5>jfieifjifjiej</h5>
-    <h5>jfieifjifjiej</h5>
+  <button ng-click="someCondition = !someCondition">show it</button>
+  
+  <div class="velocity-transition-slideUpIn" ng-show="someCondition">
+    I've been animated with Velocity and Angular!
+    I've been animated with Velocity and Angular!
+    I've been animated with Velocity and Angular!
+    I've been animated with Velocity and Angular!
   </div>
 
-  <input type="text" placeholder="Start typing to filter.." class="searchBox" ng-model="searchText" />
-  <!--<div class="item" ng-repeat="fruit in fruits">{{fruit}}</div>-->
-  <div class="item" ng-repeat="fruit in fruits | filter: searchText">
-
-    <span ng-click="removeit(fruit)">{{fruit}}</span>
-    <!--<span>{{fruit}}</span>-->
-  </div>
 </div>
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
 
@@ -159,11 +150,21 @@
 <script src="bower_components/requirejs/require.js"></script>
 <script src="bower_components/ngAnimate-animate.css/animate.js"></script>
 <script src="bower_components/lodash/lodash.js"></script>
+<script src="bower_components/velocity/velocity.js"></script>
+<script src="bower_components/velocity/velocity.ui.js"></script>
+<script src="bower_components/angular-velocity/angular-velocity.min.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 <script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
 <script src="bower_components/lodash/lodash.min.js"></script>
 
+
+<script src="bower_components/angular-velocity/angular-velocity.min.js"></script>
+
+<!-- <script src="bower_components/angular-form-for/dist/form-for.js"></script> -->
+<!-- <script src="bower_components/angular-form-for/dist/form-for.bootstrap-templates.js"></script> -->
+<!-- <script src="bower_components/angular-form-for/dist/form-for.material-templates.js"></script> -->
+<!-- <script src="bower_components/angular-form-for/dist/form-for.default-templates.js"></script> -->
 
 <!-- build:js({.tmp,app}) scripts/scripts.js -->
 <script src="scripts/app.js"></script>
