@@ -114,7 +114,22 @@
     I've been animated with Velocity and Angular!
   </div>
 
+  <h4>ngRepeat animate</h4>
+
+  <button ng-click="change()">change</button>
+
+  <ul>
+    <li 
+        class="velocity-transition-slideUpIn"
+        data-velocity-opts="{ stagger: 50 }"
+        ng-repeat="item in items">
+        {{ item }}
+    </li>
+  </ul>
+
 </div>
+
+
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
 
 <!-- build:js(.) scripts/oldieshim.js -->
@@ -147,17 +162,18 @@
 <script src="bower_components/angular-animate/angular-animate.js"></script>
 <script src="bower_components/angular-touch/angular-touch.js"></script>
 <script src="bower_components/angular-route/angular-route.js"></script>
-<script src="bower_components/requirejs/require.js"></script>
+<!-- <script src="bower_components/requirejs/require.js"></script> -->
 <script src="bower_components/ngAnimate-animate.css/animate.js"></script>
 <script src="bower_components/lodash/lodash.js"></script>
-<script src="bower_components/velocity/velocity.js"></script>
-<script src="bower_components/velocity/velocity.ui.js"></script>
-<script src="bower_components/angular-velocity/angular-velocity.min.js"></script>
+<!-- <script src="bower_components/velocity/velocity.js"></script> -->
+<!-- <script src="bower_components/velocity/velocity.ui.js"></script> -->
 <!-- endbower -->
 <!-- endbuild -->
 <script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
 <script src="bower_components/lodash/lodash.min.js"></script>
 
+<script src="bower_components/velocity/velocity.js"></script>
+<script src="bower_components/velocity/velocity.ui.js"></script>
 
 <script src="bower_components/angular-velocity/angular-velocity.min.js"></script>
 

@@ -15,7 +15,8 @@
     "requirejs": "~2.1.14",
     "ngAnimate-animate.css": "~0.1.1",
     "lodash": "~3.7.0",
-    "angular-velocity": "~0.3.1"
+    "angular-velocity": "~0.3.1",
+    "velocity": "~1.2.2"
   },
   "devDependencies": {
     "angular-mocks": "1.2.16",
